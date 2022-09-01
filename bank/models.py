@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Section(models.Model):
-    name = models.CharField(verbose_name='Name', max_length=120)
+    name = models.CharField(verbose_name='Наименование', max_length=120)
 
     class Meta:
         verbose_name = 'Section'
@@ -14,9 +14,9 @@ class Section(models.Model):
 
 
 class Task(models.Model):
-    section = models.ForeignKey('bank.Section', on_delete=models.SET_NULL, verbose_name='Section', null=True)
+    section = models.ForeignKey('bank.Section', on_delete=models.SET_NULL, verbose_name='Раздел', null=True)
     name = models.CharField(max_length=120, verbose_name='Название')
-    answer = models.CharField(max_length=255, verbose_name='Answer')
+    answer = models.CharField(max_length=255, verbose_name='Ответ')
     content = RichTextField()
 
     class Meta:
