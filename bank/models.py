@@ -1,5 +1,5 @@
-from ckeditor.fields import RichTextField
 from django.db import models
+from django_quill.fields import QuillField
 
 
 class Section(models.Model):
@@ -17,7 +17,7 @@ class Task(models.Model):
     section = models.ForeignKey('bank.Section', on_delete=models.SET_NULL, verbose_name='Раздел', null=True)
     name = models.CharField(max_length=120, verbose_name='Название')
     answer = models.CharField(max_length=255, verbose_name='Ответ')
-    content = RichTextField()
+    content = QuillField()
 
     class Meta:
         verbose_name = 'Task'

@@ -18,8 +18,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework',
     'django_filters',
-    'ckeditor',
-    'bank'
+    'bank',
+    'django_quill',
 ]
 
 REST_FRAMEWORK = {

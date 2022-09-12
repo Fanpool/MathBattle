@@ -1,14 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 
-from rest_framework.routers import DefaultRouter
-
-from .api import TaskViewSet
+from .views import form_view
+from .api.router import router
 
 
 urlpatterns = [
+    path('ttask/', form_view),
+    path('api/', include((router.urls, 'api')))
 ]
-
-rounter = DefaultRouter()
-rounter.register(r'task', TaskViewSet, basename='task')
-
-urlpatterns += rounter.urls
